@@ -25,7 +25,7 @@
 #
 
 __author__ = """Jean Rodrigo Ferri <jeanrodrigoferri@yahoo.com.br>"""
-__docformat__ = 'plaintext'
+__docformat__ = "plaintext"
 
 
 # There are three ways to inject custom code here:
@@ -38,42 +38,41 @@ __docformat__ = 'plaintext'
 #   - To register a customisation policy, create a file CustomizationPolicy.py
 #       with a method register(context) to register the policy.
 
+
 import logging
-logger = logging.getLogger('windowZ')
-logger.info('Installing Product')
-
-from Products.CMFCore import utils as cmfutils
-
-from Products.CMFCore import DirectoryView
-from Products.Archetypes.atapi import process_types
-from Products.Archetypes import listTypes
-from config import PROJECTNAME, ADD_CONTENT_PERMISSION, product_globals
-
-DirectoryView.registerDirectory('skins', product_globals)
-
-##code-section custom-init-head #fill in your manual code here
 from zope.i18nmessageid import MessageFactory
-WindowZMessageFactory = MessageFactory('windowZ')
-##/code-section custom-init-head
+
+logger = logging.getLogger("windowZ")
+logger.info("Installing Product")
+
+# from Products.CMFCore import utils as cmfutils
+
+# from config import PROJECTNAME, ADD_CONTENT_PERMISSION, product_globals
 
 
-def initialize(context):
-    ##code-section custom-init-top #fill in your manual code here
-    ##/code-section custom-init-top
+# code-section custom-init-head #fill in your manual code here
 
-    # imports packages and types for registration
-    import content
-    content  # pyflakes
+WindowZMessageFactory = MessageFactory("windowZ")
+# /code-section custom-init-head
 
-    # Initialize portal content
-    all_content_types, all_constructors, all_ftis = process_types(
-        listTypes(PROJECTNAME),
-        PROJECTNAME)
 
-    cmfutils.ContentInit(
-        PROJECTNAME + ' Content',
-        content_types = all_content_types,
-        permission = ADD_CONTENT_PERMISSION,
-        extra_constructors = all_constructors,
-        fti = all_ftis,
-        ).initialize(context)
+# def initialize(context):
+#     ##code-section custom-init-top #fill in your manual code here
+#     ##/code-section custom-init-top
+#
+#     # imports packages and types for registration
+#     import content
+#     content  # pyflakes
+#
+#     # Initialize portal content
+#     all_content_types, all_constructors, all_ftis = process_types(
+#         listTypes(PROJECTNAME),
+#         PROJECTNAME)
+#
+#     cmfutils.ContentInit(
+#         PROJECTNAME + ' Content',
+#         content_types = all_content_types,
+#         permission = ADD_CONTENT_PERMISSION,
+#         extra_constructors = all_constructors,
+#         fti = all_ftis,
+#         ).initialize(context)

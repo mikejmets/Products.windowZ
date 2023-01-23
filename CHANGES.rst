@@ -5,7 +5,7 @@ Changelog
 2.0.2 (unreleased)
 ==================
 
-- Nothing changed yet.
+- Port from Archetypes to Dexterity
 
 
 2.0.1 (2019-10-30)

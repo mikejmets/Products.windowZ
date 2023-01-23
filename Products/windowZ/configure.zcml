@@ -3,16 +3,29 @@
            xmlns:gs="http://namespaces.zope.org/genericsetup"
            i18n_domain="windowZ">
 
-  <include package="Products.CMFCore" file="configure.zcml" />
-  <include package="plone.app.registry" />
+  <browser:resourceDirectory
+      name="Products.windowZ"
+      directory="static" />
+
+  <include package=".browser" />
 
   <include file="upgrades.zcml" />
 
+  <include file="permissions.zcml" />
+
   <gs:registerProfile
       name="default"
-      title="windowZ"
+      title="Install windowZ"
       directory="profiles/default"
       description="Include iFrames as Plone content"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <gs:registerProfile
+      name="uninstall"
+      title="Uninstall windowZ"
+      directory="profiles/uninstall"
+      description="Uninstall iFrames as Plone content"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 

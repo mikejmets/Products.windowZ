@@ -48,4 +48,8 @@ Thomas Lotze (tlotze), Maik Derstappen (MrTango)
 * Plone 5 reactoring
 * Test setup refactoring
 
+Mike Metcalfe (mikejmets)
+
+* Port from Archetypes to Dexterity
+
 Many thanks!
